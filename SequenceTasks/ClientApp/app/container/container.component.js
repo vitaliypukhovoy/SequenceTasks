@@ -62,17 +62,16 @@ var ContainerComponent = /** @class */ (function () {
         }
         else if (event == "p") {
             console.log(this.tasks);
-            //   this.renderer.invokeElementMethod(
-            //     this.el.nativeElement.ownerDocument.activeElement, 'focus');
             this.tasks.findIndex(function (x) {
-                if (x.number == _this._number)
-                    x.isEditable;
-                boolean = true;
+                if (x.number == _this._number) {
+                    x.isEditable = true;
+                }
             });
+            //this.tasks.map((i: Task) => i.isEditable = false);
         }
     };
     ContainerComponent.prototype.onSave = function () {
-        this.tasks.map(function (i) { return i.isEditable = false; });
+        this.tasks.map(function (i) { i.isEditable = false; });
     };
     ContainerComponent.prototype.onAdd = function () {
         this.tasks.push({ number: this.f_number, task: this.f_task });
