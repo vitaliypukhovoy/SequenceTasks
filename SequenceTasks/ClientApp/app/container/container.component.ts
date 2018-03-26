@@ -43,7 +43,7 @@ export class ContainerComponent implements OnInit {
                     task: 'Lumpy Space Person'
                 },
             ];
-        this.tasks.map(i => i.isEditable = false);
+        this.tasks.map((i: Task) => i.isEditable = false);
     }
 
     public discussion: string = "Test string";
