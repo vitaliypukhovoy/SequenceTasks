@@ -75,18 +75,17 @@ export class ContainerComponent implements OnInit {
             }
         }
         else if (event == "p") {
-            console.log(this.tasks);
-            //   this.renderer.invokeElementMethod(
-            //     this.el.nativeElement.ownerDocument.activeElement, 'focus');
+            console.log(this.tasks);            
             this.tasks.findIndex((x : Task) => {
-                if (x.number == this._number)
-                      x.isEditable = true;
+                if (x.number == this._number) {
+                    x.isEditable = true;
+                }
             });
         }
     }
 
     onSave(): void {
-        this.tasks.map((i : Task) => i.isEditable = false);
+        this.tasks.map((i: Task) => { i.isEditable = false; });
     }
 
     onAdd(): void {
