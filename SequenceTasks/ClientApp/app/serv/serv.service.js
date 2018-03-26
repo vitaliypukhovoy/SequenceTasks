@@ -65,10 +65,9 @@ var Service = /** @class */ (function () {
     };
     Service = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [typeof (_a = typeof HttpClient !== "undefined" && HttpClient) === "function" && _a || Object])
+        __metadata("design:paramtypes", [HttpClient])
     ], Service);
     return Service;
-    var _a;
 }());
 export { Service };
 //# sourceMappingURL=serv.service.js.map
