@@ -76,11 +76,14 @@ export class ContainerComponent implements OnInit {
         }
         else if (event == "p") {
             console.log(this.tasks);            
-            this.tasks.findIndex((x : Task) => {
+            this.tasks.findIndex((x: Task) => {
                 if (x.number == this._number) {
-                    x.isEditable = true;
+                    x.isEditable = true
                 }
-            });
+            }
+            );
+            //this.tasks.map((i: Task) => i.isEditable = false);
+
         }
     }
 
