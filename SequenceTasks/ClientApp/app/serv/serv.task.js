@@ -1,7 +1,7 @@
 var Task = /** @class */ (function () {
-    function Task(number, task, isEditable) {
+    function Task(number, taska, isEditable) {
         this.number = number;
-        this.task = task;
+        this.taska = taska;
         this.isEditable = isEditable;
     }
     ;

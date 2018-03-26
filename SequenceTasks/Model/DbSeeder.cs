@@ -26,9 +26,9 @@ namespace SequenceTasks.Model
             DbContext.Database.EnsureCreated();
 
               var items  = new List<iTask> {
-                new iTask{number= 1, Tasks ="Do do homework" },
-                new iTask{number= 1, Tasks ="Do do homework2" },
-                new iTask{number= 1, Tasks ="Do do homework3" }
+                new iTask{number= 1, Taska ="Do do homework" },
+                new iTask{number= 1, Taska ="Do do homework2" },
+                new iTask{number= 1, Taska ="Do do homework3" }
 
             };
 

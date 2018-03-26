@@ -1,11 +1,11 @@
 ﻿export class Task {
     public number: number;
-    public task: string;
+    public taska: string;
     public isEditable: boolean;
 
-    constructor(number: number, task: string, isEditable: boolean) {
+    constructor(number: number, taska: string, isEditable: boolean) {
         this.number = number;
-        this.task = task;
+        this.taska = taska;
         this.isEditable = isEditable;
     };
 

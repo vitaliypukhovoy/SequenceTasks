@@ -19,11 +19,11 @@ var ContainerComponent = /** @class */ (function () {
             [
                 {
                     number: 1,
-                    task: 'Lemon Candy'
+                    taska: 'Lemon Candy'
                 },
                 {
                     number: 2,
-                    task: 'Gum Person'
+                    taska: 'Gum Person'
                 },
                 {
                     number: 3,
@@ -31,7 +31,7 @@ var ContainerComponent = /** @class */ (function () {
                 },
                 {
                     number: 4,
-                    task: 'Lumpy Space Person'
+                    taska: 'Lumpy Space Person'
                 },
             ];
         this.tasks.map(function (i) { return i.isEditable = false; });
@@ -60,10 +60,10 @@ var ContainerComponent = /** @class */ (function () {
         }
         else if (event == "p") {
             console.log(this.tasks);
-            this.tasks.forEach(function (x, index, arr) {
-                if (x.number == this._number) {
-                    console.log(x.number + "" + this._number);
-                    x.isEditable = true;
+            this.tasks.map(function (a) {
+                if (a.number == _this._number) {
+                    a.isEditable = true;
+                    return;
                 }
             });
         }

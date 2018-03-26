@@ -3,12 +3,12 @@
     <tr><th> number</th> <th> tasks</th><th>action</th></tr>
     <tr *ngFor=" let task of tasks"> 
     <tr *ngFor="let t of tasks">
-        <td class="focus" contentEditable="t.isEditable">
+        <td class="focus">
             <input type="text" [(ngModel)]="t.number" [disabled]=!t.isEditable>
             <!--{{t.number}}-->
         </td>
         <td>
-            {{t.task}}
+            {{t.taska}}
         </td>
         <td>
             <app-in-container [number]="t.number" [isEditable]="!t.isEditable"

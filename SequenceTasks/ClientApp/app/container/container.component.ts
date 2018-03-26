@@ -25,11 +25,11 @@ export class ContainerComponent implements OnInit {
             [
                 {
                     number: 1,
-                    task: 'Lemon Candy'
+                    taska: 'Lemon Candy'
                 },
                 {
                     number: 2,
-                    task: 'Gum Person'
+                    taska: 'Gum Person'
                 },
                 {
                     number: 3,
@@ -37,7 +37,7 @@ export class ContainerComponent implements OnInit {
                 },
                 {
                     number: 4,
-                    task: 'Lumpy Space Person'
+                    taska: 'Lumpy Space Person'
                 },
             ];
 

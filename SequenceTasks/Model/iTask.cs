@@ -23,7 +23,7 @@ namespace SequenceTasks.Model
 
         [Required]
         [StringLength(50, ErrorMessage = "Should be  about 50 characters")]
-        public string Tasks { get; set; }
+        public string Taska { get; set; }
 
     }
 }

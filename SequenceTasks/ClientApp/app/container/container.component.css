@@ -7,7 +7,7 @@ input.cell {
 }
 
 input:focus {
-    background: gainsboro;
+    /*background: gainsboro;*/
 }
 
 input.ng-touched.ng-invalid {
