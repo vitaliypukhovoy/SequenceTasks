@@ -14,8 +14,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 var ContainerComponent = /** @class */ (function () {
     function ContainerComponent(_servise) {
         this._servise = _servise;
-        this.f_number = 0;
-        this.f_task = "";
         this.editable = false;
         this.tasks =
             [
@@ -38,7 +36,6 @@ var ContainerComponent = /** @class */ (function () {
             ];
         this.tasks.map(function (i) { return i.isEditable = false; });
     }
-    ;
     ContainerComponent.prototype.onHandleEvent = function (event) {
         this._number = event;
     };
@@ -64,7 +61,10 @@ var ContainerComponent = /** @class */ (function () {
         else if (event == "p") {
             console.log(this.tasks);
             this.tasks.forEach(function (x, index, arr) {
-                x.isEditable = true;
+                if (x.number == this._number) {
+                    console.log(x.number + "" + this._number);
+                    x.isEditable = true;
+                }
             });
         }
     };

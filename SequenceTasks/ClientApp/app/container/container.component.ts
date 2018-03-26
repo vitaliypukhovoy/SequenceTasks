@@ -12,14 +12,14 @@ import { FormGroup, FormControl, FormControlName, Validators } from '@angular/fo
 export class ContainerComponent implements OnInit {
     _form: FormGroup;
     _error: any;
-    tasks: any;// Array<Task>;  
-  
+    tasks: any;// Array<Task>;
 
-    public f_number: number = 0;;
-    public f_task: string = "";
+
+    public f_number: number;
+    public f_task: string;
     public _number: number;
 
-    constructor(private _servise: Service) {      
+    constructor(private _servise: Service) {
 
         this.tasks =
             [
@@ -43,7 +43,7 @@ export class ContainerComponent implements OnInit {
 
         this.tasks.map((i: Task) => i.isEditable = false);
     }
- 
+
     public editable: boolean = false;
 
     public onHandleEvent(event: number) {
@@ -52,7 +52,7 @@ export class ContainerComponent implements OnInit {
 
     public onSHandleEvent(event: string) {
         let index = this.tasks.findIndex((x: Task) => x.number == this._number);
-        
+
 
         if (event == "d")
             index > -1 ? this.tasks.splice(index, 1) : 0;
@@ -72,9 +72,12 @@ export class ContainerComponent implements OnInit {
         }
         else if (event == "p") {
             console.log(this.tasks);
-            this.tasks.forEach(function (x, index, arr) {
-                x.isEditable = true;
-            });     
+            this.tasks.map(a => {
+                if (a.number == this._number) {
+                    a.isEditable = true;
+                    return;
+                }
+            });
         }
     }
 
@@ -85,14 +88,14 @@ export class ContainerComponent implements OnInit {
     onAdd(): void {
 
 
-        this.tasks.push(new Task (this.f_number, this.f_task,false));
+        this.tasks.push(new Task(this.f_number, this.f_task, false));
         console.log(this.tasks);
     }
 
     ngOnInit() {
 
-       // this._servise.getTasks()
-       //     .subscribe(response => { this.tasks = response });
+        // this._servise.getTasks()
+        //     .subscribe(response => { this.tasks = response });
 
         this._form = new FormGroup({
             number: new FormControl('',
@@ -107,7 +110,7 @@ export class ContainerComponent implements OnInit {
 
     }
 
-    onSubmit(form: FormGroup) {       
+    onSubmit(form: FormGroup) {
         // console.log(form);
     }
 
