@@ -10,7 +10,7 @@ using SequenceTasks.Model;
 
 namespace SequenceTasks.Model
 {
-    public class Repository : IRepository //<T> where T : class
+    public class Repository : IRepository 
     {
         
         private static ConcurrentDictionary<string, iTask> iTaskCache;
@@ -69,9 +69,7 @@ namespace SequenceTasks.Model
         {
             return await Task.Run(() =>
             {                
-                id = id.ToUpper();
-                //c.Id = c.Id;.ToUpper();
-               
+              
                 db.Tasks.Update(c);
                 int affected = db.SaveChanges();
                 if (affected == 1)

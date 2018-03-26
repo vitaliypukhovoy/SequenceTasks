@@ -7,7 +7,7 @@ using SequenceTasks.Model;
 
 namespace SequenceTasks.Model
 {
-    public interface IRepository //<T> where T : class
+    public interface IRepository 
     {
         Task<iTask> CreateAsync(iTask task);
         Task<IEnumerable<iTask>> RetrieveAllAsync();

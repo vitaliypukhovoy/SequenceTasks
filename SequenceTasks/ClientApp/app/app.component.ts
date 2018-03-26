@@ -1,11 +1,17 @@
 ﻿import { Component } from '@angular/core';
+import 'rxjs/Rx';
+
 
 @Component({
     selector: 'app',
-    template: `<label>Введите имя:</label>
-                 <input [(ngModel)]="name" placeholder="name">
-                 <h2>Добро пожаловать {{name}}!</h2>`
+    template: ` <div style="margin: 100px 400px">
+            <app-container > </app-container>
+            < /div>`
 })
 export class AppComponent {
-    name = '';
+    title = 'SequenceTasks';
+    constructor() { }
+
+    ngOnInit() { }
+
 }

@@ -8,6 +8,10 @@
   <ItemGroup>
     <None Remove="ClientApp\app\app.component.ts" />
     <None Remove="ClientApp\app\app.module.ts" />
+    <None Remove="ClientApp\app\container\container.component.ts" />
+    <None Remove="ClientApp\app\in-container\in-container.component.ts" />
+    <None Remove="ClientApp\app\serv\serv.service.ts" />
+    <None Remove="ClientApp\app\serv\serv.task.ts" />
     <None Remove="ClientApp\main.ts" />
     <None Remove="ClientApp\polyfills.ts" />
     <None Remove="ClientApp\webpack.config.ts" />
@@ -20,7 +24,6 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.2" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
-    <PackageReference Include="Autofac.WebApi2" Version="4.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
   </ItemGroup>
 
@@ -31,6 +34,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\container\container.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\in-container\in-container.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\serv\serv.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\serv\serv.task.ts" />
     <TypeScriptCompile Include="ClientApp\main.ts" />
     <TypeScriptCompile Include="ClientApp\polyfills.ts" />
     <TypeScriptCompile Include="ClientApp\webpack.config.ts" />

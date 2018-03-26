@@ -1,0 +1,60 @@
+﻿
+
+<table border="1">
+    <tr><th> number</th> <th> tasks</th><th>action</th></tr>
+
+    <!--<th *ngFor="let col of columns">-->
+    <!--{{col}}-->
+    <!--</th>-->
+    <tr *ngFor=" let task of tasks">
+        <!--<td *ngFor="let col of _columns">-->
+        <!--*ngIf= {{task[col]}}-->
+        <!--</td>-->
+
+    <tr *ngFor="let t of tasks">
+        <td class="focus" contentEditable="t.isEditable">
+            <input type="text" [(ngModel)]="t.number" [disabled]=!t.isEditable>
+            <!--{{t.number}}-->
+        </td>
+        <td>
+            {{t.task}}
+        </td>
+        <td>
+            <app-in-container [number]="t.number" [isEditable]="!t.isEditable"
+                              (dataSender)="onHandleEvent($event)"
+                              (stringSender)="onSHandleEvent($event)"></app-in-container>
+        </td>
+    </tr>
+</table>
+
+
+<form #form [formGroup]="_form" (ngSubmit)="onSubmit(form)" novalidate>
+    <tr>
+        <td>
+            <input [(ngModel)]="f_number" formControlName="number">
+        </td>
+        <td>
+            <input [(ngModel)]="f_task" formControlName="task">
+        </td>
+        <td>
+            <input type="submit" value="Add" (click)="onAdd()" [disabled]="!_form.valid">
+            <input type="submit" (click)="onSave()" value="Save">
+            <input type="reset" value="Reset">
+        </td>
+    </tr>
+
+</form>
+
+
+<p class="text" name="discussion"
+   [contentEditable]="editable"
+   [ngClass]="{ 'editable': editable }"
+   (blur)="uDiscussion()"
+   (click)="eDiscussion($event)"
+   (input)="discussion = $event.target.innerText">
+    {{ discussion }}
+</p>
+
+<br>
+<br>
+<p>{{_tasks}} </p>

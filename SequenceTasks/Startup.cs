@@ -18,11 +18,10 @@ namespace SequenceTasks
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)//IConfiguration configuration)
-        {
-           // Configuration = configuration;
+        public Startup(IHostingEnvironment env)
+        {     
 
-            var builder = new ConfigurationBuilder()
+         var builder = new ConfigurationBuilder()
         .SetBasePath(env.ContentRootPath)
         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
@@ -51,8 +50,7 @@ namespace SequenceTasks
         }
 
         public void Configure(
-            IApplicationBuilder app,
-           // IAppBuilder app,
+            IApplicationBuilder app,           
             IHostingEnvironment env,
             ILoggerFactory loggerFactory,
             IApplicationLifetime appLifetime)
@@ -78,68 +76,7 @@ namespace SequenceTasks
             app.UseMvc();
            
             appLifetime.ApplicationStopped.Register(() => this.ApplicationContainer.Dispose());
-        }
-
-
-
-
-
-
-
-
-
-
-        // public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    services.AddMvc();
-        //    services.AddEntityFrameworkSqlServer();
-
-        //   // Add ApplicationDbContext.
-        //     services.AddDbContext<TasksContext>(options =>
-        //         options.UseSqlServer(Configuration.GetConnectionString("SequenceTasks"))
-        //         );
-        //    services.AddScoped<IRepository, Repository>();
-
-        //    // string connection = Configuration.GetConnectionString("SequenceTasks");
-        //    // services.AddDbContext<TasksContext>(options => options.UseSqlServer(connection));
-
-
-        //}
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        //public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        //{
-        //    if (env.IsDevelopment())
-        //    {
-        //        app.UseDeveloperExceptionPage();
-
-        //    }
-        //    else
-        //    {
-        //        app.UseExceptionHandler("/Home/Error");
-        //    }
-
-        //    app.UseMvc(routes =>
-        //    {
-        //        routes.MapRoute(
-        //            name: "default",
-        //            template: "{controller=Home}/{action=Index}/{id?}");
-
-        //    });
-
-
-        //    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-        //    {
-        //        var dbContext = serviceScope.ServiceProvider.GetService<TasksContext>();
-
-        //        //  DbSeeder.Seed(dbContext);
-        //    }
-
-        //}
-
+        }        
 
     }
 }
