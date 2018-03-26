@@ -15,7 +15,7 @@ import 'rxjs/Rx';
 var Service = /** @class */ (function () {
     function Service(_http) {
         this._http = _http;
-        this.url = "/api/value";
+        this.url = "http://localhost:1297/api/values";
     }
     //get all
     Service.prototype.getTasks = function () {

@@ -14,7 +14,7 @@ namespace SequenceTasks.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [ScaffoldColumn(true)]
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [Required]

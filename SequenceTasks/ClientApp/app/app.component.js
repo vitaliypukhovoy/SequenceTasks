@@ -17,7 +17,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Component({
             selector: 'app',
-            template: " <div style=\"margin: 100px 400px\">\n            <app-container > </app-container>\n            < /div>"
+            template: " <div style=\"margin: 100px 400px\">\n            <app-container></app-container>\n            </div>"
         }),
         __metadata("design:paramtypes", [])
     ], AppComponent);

@@ -7,15 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, ElementRef, Renderer } from '@angular/core';
+import { Component } from '@angular/core';
 import { Service } from './../serv/serv.service';
+import { Task } from './../serv/serv.task';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 var ContainerComponent = /** @class */ (function () {
-    function ContainerComponent(_servise, el, renderer) {
+    function ContainerComponent(_servise) {
         this._servise = _servise;
-        this._columns = ["number", "task"];
-        this.columns = ["id", "title"];
-        this.discussion = "Test string";
+        this.f_number = 0;
+        this.f_task = "";
         this.editable = false;
         this.tasks =
             [
@@ -38,6 +38,7 @@ var ContainerComponent = /** @class */ (function () {
             ];
         this.tasks.map(function (i) { return i.isEditable = false; });
     }
+    ;
     ContainerComponent.prototype.onHandleEvent = function (event) {
         this._number = event;
     };
@@ -62,25 +63,21 @@ var ContainerComponent = /** @class */ (function () {
         }
         else if (event == "p") {
             console.log(this.tasks);
-            this.tasks.findIndex(function (x) {
-                if (x.number == _this._number) {
-                    x.isEditable = true;
-                }
+            this.tasks.forEach(function (x, index, arr) {
+                x.isEditable = true;
             });
-            //this.tasks.map((i: Task) => i.isEditable = false);
         }
     };
     ContainerComponent.prototype.onSave = function () {
         this.tasks.map(function (i) { i.isEditable = false; });
     };
     ContainerComponent.prototype.onAdd = function () {
-        this.tasks.push({ number: this.f_number, task: this.f_task });
+        this.tasks.push(new Task(this.f_number, this.f_task, false));
         console.log(this.tasks);
     };
     ContainerComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._servise.getTasks()
-            .subscribe(function (response) { _this._tasks = response; });
+        // this._servise.getTasks()
+        //     .subscribe(response => { this.tasks = response });
         this._form = new FormGroup({
             number: new FormControl('', [Validators.required,
                 Validators.pattern('^[0-9]+$')
@@ -91,7 +88,6 @@ var ContainerComponent = /** @class */ (function () {
         });
     };
     ContainerComponent.prototype.onSubmit = function (form) {
-        // alert(form);
         // console.log(form);
     };
     ContainerComponent = __decorate([
@@ -100,7 +96,7 @@ var ContainerComponent = /** @class */ (function () {
             templateUrl: './container.component.html',
             styleUrls: ['./container.component.css']
         }),
-        __metadata("design:paramtypes", [Service, ElementRef, Renderer])
+        __metadata("design:paramtypes", [Service])
     ], ContainerComponent);
     return ContainerComponent;
 }());

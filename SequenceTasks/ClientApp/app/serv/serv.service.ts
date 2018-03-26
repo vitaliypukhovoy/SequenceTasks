@@ -8,7 +8,7 @@ import { Task } from './serv.task'
 @Injectable()
 export class Service {
 
-    url: string = "/api/value";
+    url: string = "http://localhost:1297/api/values";
     constructor(private _http: HttpClient) {
 
     }

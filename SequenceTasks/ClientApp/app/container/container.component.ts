@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Directive, ElementRef, HostListener, Input, Renderer } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 import { Service } from './../serv/serv.service';
 import { Task } from './../serv/serv.task';
 import { FormGroup, FormControl, FormControlName, Validators } from '@angular/forms'
@@ -12,17 +12,14 @@ import { FormGroup, FormControl, FormControlName, Validators } from '@angular/fo
 export class ContainerComponent implements OnInit {
     _form: FormGroup;
     _error: any;
-    _tasks: Array<Task>;
-    tasks: any;
-    t: "any";
+    tasks: any;// Array<Task>;  
+  
 
-    public f_number: number;
-    public f_task: string;
-    _columns: string[] = ["number", "task"];
-    columns: string[] = ["id", "title"];
+    public f_number: number = 0;;
+    public f_task: string = "";
     public _number: number;
 
-    constructor(private _servise: Service, el: ElementRef, renderer: Renderer) {      
+    constructor(private _servise: Service) {      
 
         this.tasks =
             [
@@ -43,12 +40,11 @@ export class ContainerComponent implements OnInit {
                     task: 'Lumpy Space Person'
                 },
             ];
+
         this.tasks.map((i: Task) => i.isEditable = false);
     }
-
-    public discussion: string = "Test string";
+ 
     public editable: boolean = false;
-
 
     public onHandleEvent(event: number) {
         this._number = event;
@@ -75,15 +71,10 @@ export class ContainerComponent implements OnInit {
             }
         }
         else if (event == "p") {
-            console.log(this.tasks);            
-            this.tasks.findIndex((x: Task) => {
-                if (x.number == this._number) {
-                    x.isEditable = true
-                }
-            }
-            );
-            //this.tasks.map((i: Task) => i.isEditable = false);
-
+            console.log(this.tasks);
+            this.tasks.forEach(function (x, index, arr) {
+                x.isEditable = true;
+            });     
         }
     }
 
@@ -92,14 +83,16 @@ export class ContainerComponent implements OnInit {
     }
 
     onAdd(): void {
-        this.tasks.push({ number: this.f_number, task: this.f_task });
+
+
+        this.tasks.push(new Task (this.f_number, this.f_task,false));
         console.log(this.tasks);
     }
 
     ngOnInit() {
 
-        this._servise.getTasks()
-            .subscribe(response => { this._tasks = response });
+       // this._servise.getTasks()
+       //     .subscribe(response => { this.tasks = response });
 
         this._form = new FormGroup({
             number: new FormControl('',
@@ -114,10 +107,7 @@ export class ContainerComponent implements OnInit {
 
     }
 
-
-
-    onSubmit(form: FormGroup) {
-        // alert(form);
+    onSubmit(form: FormGroup) {       
         // console.log(form);
     }
 
