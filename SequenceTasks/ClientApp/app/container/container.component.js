@@ -17,7 +17,6 @@ var ContainerComponent = /** @class */ (function () {
         this.columns = ["id", "title"];
         this.discussion = "Test string";
         this.editable = false;
-        el.nativeElement.style.backgroundColor = 'yellow';
         this.tasks =
             [
                 {
@@ -39,9 +38,6 @@ var ContainerComponent = /** @class */ (function () {
             ];
         this.tasks.map(function (i) { return i.isEditable = false; });
     }
-    ContainerComponent.prototype.dDiscussion = function () {
-        console.log("delete");
-    };
     ContainerComponent.prototype.onHandleEvent = function (event) {
         this._number = event;
     };
@@ -70,7 +66,8 @@ var ContainerComponent = /** @class */ (function () {
             //     this.el.nativeElement.ownerDocument.activeElement, 'focus');
             this.tasks.findIndex(function (x) {
                 if (x.number == _this._number)
-                    x.isEditable = true;
+                    x.isEditable;
+                boolean = true;
             });
         }
     };

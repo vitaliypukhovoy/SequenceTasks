@@ -22,11 +22,7 @@ export class ContainerComponent implements OnInit {
     columns: string[] = ["id", "title"];
     public _number: number;
 
-    constructor(private _servise: Service, el: ElementRef, renderer: Renderer) {
-
-
-
-        el.nativeElement.style.backgroundColor = 'yellow';
+    constructor(private _servise: Service, el: ElementRef, renderer: Renderer) {      
 
         this.tasks =
             [
@@ -53,18 +49,14 @@ export class ContainerComponent implements OnInit {
     public discussion: string = "Test string";
     public editable: boolean = false;
 
-    dDiscussion() {
-        console.log("delete");
-    }
-
 
     public onHandleEvent(event: number) {
         this._number = event;
     }
 
     public onSHandleEvent(event: string) {
-        let index = this.tasks.findIndex(x => x.number == this._number);
-
+        let index = this.tasks.findIndex((x: Task) => x.number == this._number);
+        
 
         if (event == "d")
             index > -1 ? this.tasks.splice(index, 1) : 0;
@@ -86,15 +78,15 @@ export class ContainerComponent implements OnInit {
             console.log(this.tasks);
             //   this.renderer.invokeElementMethod(
             //     this.el.nativeElement.ownerDocument.activeElement, 'focus');
-            this.tasks.findIndex(x => {
+            this.tasks.findIndex((x : Task) => {
                 if (x.number == this._number)
-                    x.isEditable = true;
+                      x.isEditable = true;
             });
         }
     }
 
     onSave(): void {
-        this.tasks.map(i => i.isEditable = false);
+        this.tasks.map((i : Task) => i.isEditable = false);
     }
 
     onAdd(): void {
